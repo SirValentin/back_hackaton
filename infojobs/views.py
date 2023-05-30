@@ -75,7 +75,6 @@ class InfojobsViewSet(ModelViewSet):
             Agregar a las debilidades las habilidades o experiencias del postulante que no estan descritas en su curriculum.\
             ***{content}*** \
             '''{offer}'''"
-        print(prompt)
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
 
         return JsonResponse({"response": json.loads(response.choices[0].message["content"])})
